@@ -16,7 +16,8 @@ Para rodar esse repositório você precisara ter:
 - [x] [Docker](https://docs.docker.com/engine/install/)
 - [x] [docker-compose](https://docs.docker.com/compose/install/)
 
-Certifique-se que você tem essas dependências antes de prosseguir 
+:warning: Certifique-se que você tem essas dependências antes de prosseguir.
+
 ---
 ## Run
 
