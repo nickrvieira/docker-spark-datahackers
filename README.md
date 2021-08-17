@@ -6,7 +6,7 @@
 :brazil:
 Este é um repositório para que você possa compreender um setup básico de um Spark no modo Standalone, bem como explorar um pouco da UI e suas funções mais simples, sem a necessidade de configurar o Spark local em sua máquina.
 
-**PS:** Essa imagem docker foi feita puramente para exploração local, não sendo adequada para o deploy em outros cenários (como K8s)
+**PS:** Essa imagem docker foi feita puramente para exploração local/*standalone*, não sendo adequada para o deploy em outros cenários (como K8s)
 
 **ENGLISH DISCLAIMER** :us: *This repo is meant for a Portuguese/BR community - if you have trouble understanding this docs, please open an issue and let me know so I can translate it.*
 
@@ -98,6 +98,8 @@ Caso você não esteja habituado em persistências em disco com particionamento,
 
 :information_source: Volte para as UIs do Master/Workers e observe o que elas contém após a execução
 
+---
+### Aprofunde
 
 Aproveite e explore outros scripts - não esqueça sempre de manter:
 - Datasets em `./data/`
