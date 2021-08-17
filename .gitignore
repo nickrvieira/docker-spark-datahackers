@@ -1,6 +1,5 @@
 *.tsv
 *.csv
-*.py
 
 data/*
 !.gitkeep
