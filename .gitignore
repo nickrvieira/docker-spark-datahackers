@@ -1,0 +1,8 @@
+*.tsv
+*.csv
+*.py
+
+data/*
+!.gitkeep
+output/*
+!.gitkeep

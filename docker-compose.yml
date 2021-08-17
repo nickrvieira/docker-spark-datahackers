@@ -1,0 +1,44 @@
+version: "2.2"
+services:
+  master:
+    image: naniviaa/spark-dhbr:latest
+    container_name: master-dhbr
+    command: bin/spark-class org.apache.spark.deploy.master.Master -h master
+    hostname: master
+    environment:
+      MASTER: spark://master:7077
+      SPARK_CONF_DIR: /conf
+      SPARK_PUBLIC_DNS: localhost
+      SPARK_DRIVER_MEMORY: 1g
+    ports:
+      - 4040:4040 # Spark UI
+      - 7077:7077 # Spark Master
+      - 8080:8080 # Spark Master - UI
+    volumes:
+      - ./data:/tmp/data # Para compartilhar dadods
+      - ./app:/tmp/app # Para compartilhar scripts
+      - ./output:/tmp/output/
+    ulimits:
+      nproc: 8192 
+  worker-a:
+    image: naniviaa/spark-dhbr:latest
+    container_name: worker-a-dhbr
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
+    hostname: worker
+    environment:
+      SPARK_CONF_DIR: /conf
+      SPARK_WORKER_CORES: 2
+      SPARK_WORKER_MEMORY: 1g
+      SPARK_WORKER_PORT: 8881
+      SPARK_WORKER_WEBUI_PORT: 8081
+      SPARK_PUBLIC_DNS: localhost
+    links:
+      - master
+    ports:
+      - 8081:8081 # Spark Worker - UI
+    volumes:
+      - ./data:/tmp/data
+      - ./app:/tmp/app
+      - ./output:/tmp/output/
+    ulimits:
+      nproc: 8192
